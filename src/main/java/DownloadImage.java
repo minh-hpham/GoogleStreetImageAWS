@@ -47,10 +47,7 @@ public class DownloadImage {
 	private final static int LIMIT = 25000; // one key can download up to 25000
 	// images/day
 
-	private final static String[] API_KEYS = new String[] { "AIzaSyBz3eQXFL4WF5lf7p589vtZwGcmmSqzhUQ",
-			"AIzaSyBtoEumAlDQXuACY-9Vn2p4brgGuI0dTgw", "AIzaSyBnD7fKB3x2OdxhDKPskznPpKbnnYFhz-w",
-			"AIzaSyD7jPLu37DlQ_a3sqJ5SmV3Sm_jUQKKMb0", "AIzaSyD8dCo2cjMxatwFEkAGQpWCJcBu0-OrlFw",
-			"AIzaSyDSDOf3vmF7VUHM5O-0grY8RP7gZIjwA7k" };
+	private final static String[] API_KEYS = new String[] { "EMAIL ME TO HAVE ALL THE KEYS" };
 
 	private final static String file_addr = "/home/minhp/Downloads";
 
@@ -217,6 +214,7 @@ public class DownloadImage {
 			// Bucket's name: googlestreetimages
 			// Upload type: multiple upload for each zip file
 			// Delete zip file after done
+			// EMAIL ME TO GET IAM ID'S PERMISSION 
 			try {
 				uploadToAWS(zipFile);
 				new File(zipFile).delete();
@@ -260,9 +258,7 @@ public class DownloadImage {
 	}
 
 	private static void uploadToAWS(String zipFile) throws InterruptedException {
-			
-		
-		String existingBucketName = "googlestreetimages";
+	String existingBucketName = "googlestreetimages";
         String keyName            =  zipFile;
         File file = new File(zipFile);
        
@@ -272,8 +268,7 @@ public class DownloadImage {
         
         // TransferManager processes all transfers asynchronously, 
         // so this call will return immediately.
-        Upload upload = tm.upload(
-        		existingBucketName, keyName, file);      
+        Upload upload = tm.upload(existingBucketName, keyName, file);      
 
         try { 
         	// Or you can block and wait for the upload to finish
